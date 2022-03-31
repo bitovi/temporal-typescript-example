@@ -1,19 +1,18 @@
 import { Connection, WorkflowClient } from '@temporalio/client';
-import { driverAccepted } from './workflows';
+import { driverAcceptedSignal } from './workflows';
 
 async function run() {
-  const connection = new Connection({});
-
-  const client = new WorkflowClient(connection.service, {});
-
   const workflowId = process.argv
-    ?.find(arg => arg.includes('--workflow'))
-    ?.split('=')
-    [1];
+  ?.find(arg => arg.includes('--workflow'))
+  ?.split('=')
+  [1];
+
+  const connection = new Connection({});
+  const client = new WorkflowClient(connection.service, {});
 
   if (workflowId){
     const handle = client.getHandle(workflowId);
-    await handle.signal(driverAccepted);
+    await handle.signal(driverAcceptedSignal);
     console.log('signal has been sent');
     return;
   }
