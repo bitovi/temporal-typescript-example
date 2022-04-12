@@ -1,8 +1,12 @@
 # Temporal Typescript Example
 
-This project was scaffolded by the temporal package initializer (example: `npx @temporalio/create@latest ./myfolder`).
+This project was scaffolded by the [temporal package initializer](https://docs.temporal.io/docs/typescript/package-initializer/). Example:
 
-This example illustrates a simplified Uber workflow:
+```sh
+npx @temporalio/create@latest ./myfolder
+```
+
+This example illustrates a simplified ride-share workflow:
 
 * the client requests a ride
 * a driver can accept which transitions you to the `"driver is on their way”` state
@@ -21,10 +25,10 @@ By default, the workflow will timeout after 30 seconds and result in a `"no driv
 However, before the timeout occurs, you can simulate a driver accepting the request:
 
 * In another shell, `npm run accept-request -- --workflow=[WORKFLOW ID HERE]`
-... replacing `[WORKFLOW ID HERE]` with the workflow ID that is logged out to the shell when the workflow is first started.
+... replacing `[WORKFLOW ID HERE]` with the workflow ID that was logged out to the shell when the workflow was first started.
 
 This will result in a `"driver is on their way"` state.
 
 
 ### Viewing the Temporal Web UI
-This gets started up along with the Temporal Server: http://localhost:8088/
+Navigate to http://localhost:8088/. This UI starts up along with the Temporal Server (see step 1).

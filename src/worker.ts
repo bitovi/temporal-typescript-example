@@ -5,7 +5,7 @@ async function run() {
   const worker = await Worker.create({
     workflowsPath: require.resolve('./workflows'),
     activities,
-    taskQueue: 'uber-task-queue',
+    taskQueue: 'rideshare-task-queue',
   });
   
   await worker.run();

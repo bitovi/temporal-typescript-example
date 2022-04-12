@@ -7,7 +7,7 @@ const { requestARide } = wf.proxyActivities<typeof activities>({
 
 export const driverAcceptedSignal = wf.defineSignal('driverAcceptedSignal');
 
-export async function uberWorkflow(requestARideTimeout: string | number): Promise<string> {
+export async function rideshareWorkflow(requestARideTimeout: string | number): Promise<string> {
   await requestARide();
 
   let driverHasAccepted = false;
